@@ -1,0 +1,323 @@
+import { CodeSurfer, CodeSurferColumns, Step } from "code-surfer";
+import { nightOwl } from "@code-surfer/themes";
+import VueChart from "./slideSrc/VueChart.js";
+
+export const theme = nightOwl;
+
+<CodeSurfer>
+
+```bash title="初始化项目"
+yarn create @vitejs/app
+yarn add echarts
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```bash title="初始化项目"
+yarn create @vitejs/app
+yarn add echarts
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```html title="创建 components/Chart.vue"
+<template>
+  <div class="container"></div>
+</template>
+
+<script setup></script>
+```
+
+```html 2[25:40],6:7 title="初始化 Echarts"
+<template>
+  <div class="container" ref="container"></div>
+</template>
+
+<script setup>
+  import { ref } from "vue";
+  const container = ref(null);
+</script>
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js 5:7 title="加载 echarts"
+import { ref } from "vue";
+import * as echarts from "echarts";
+
+const container = ref(null);
+onMounted(() => {
+  const chart = echarts.init(container.value, "dark");
+});
+```
+
+```diff 6[45:52]
+
+```
+
+```js
+// ...
+const props = defineProps({
+  options: {
+    required: true,
+    type: Object,
+    default: {},
+  },
+});
+// ...
+onMounted(() => {
+  const chart = echarts.init(container.value);
+  chart.setOption(props.options);
+});
+```
+
+```diff 4
+
+```
+
+```diff 5
+
+```
+
+```diff 6
+
+```
+
+```js 2,5:6 title="监听配置项变化"
+const container = ref(null);
+const chart = ref(null);
+
+onMounted(() => {
+  chart.value = echarts.init(container.value);
+  chart.value.setOption(props.options);
+});
+```
+
+```js
+// ...
+const { options } = toRefs(props);
+
+// ...
+watch(
+  options,
+  (newOptions) => {
+    chart.value.setOption(newOptions);
+  },
+  { deep: true }
+);
+```
+
+```diff 6
+
+```
+
+```diff 7
+
+```
+
+```diff 8
+
+```
+
+```diff 10
+
+```
+
+```html
+<style scoped>
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js title="图表配置"
+const options = {
+  return {
+    legend: {},
+    tooltip: {},
+    dataset: {
+      source: [
+        ["product", "2012", "2013", "2014", "2015"],
+        ["Matcha Latte", 41.1, 30.4, 65.1, 53.3],
+        ["Milk Tea", 86.5, 92.1, 85.7, 83.1],
+        ["Cheese Cocoa", 24.1, 67.2, 79.5, 86.4],
+      ],
+    },
+    xAxis: [
+      { type: "category", gridIndex: 0 },
+      { type: "category", gridIndex: 1 },
+    ],
+    yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }],
+    grid: [{ bottom: "55%" }, { top: "55%" }],
+    series: [
+      // These series are in the first grid.
+      { type: "bar", seriesLayoutBy: "row" },
+      { type: "bar", seriesLayoutBy: "row" },
+      { type: "bar", seriesLayoutBy: "row" },
+      // These series are in the second grid.
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+    ],
+  };
+}
+```
+
+</CodeSurfer>
+
+---
+
+src/ barChartOptions.js
+
+---
+
+<CodeSurfer>
+
+```js 1 title="图表配置"
+export default function barChartOptions() {
+  return {
+    legend: {},
+    tooltip: {},
+    dataset: {
+      source: [
+        ["product", "2012", "2013", "2014", "2015"],
+        ["Matcha Latte", 41.1, 30.4, 65.1, 53.3],
+        ["Milk Tea", 86.5, 92.1, 85.7, 83.1],
+        ["Cheese Cocoa", 24.1, 67.2, 79.5, 86.4],
+      ],
+    },
+    xAxis: [
+      { type: "category", gridIndex: 0 },
+      { type: "category", gridIndex: 1 },
+    ],
+    yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }],
+    grid: [{ bottom: "55%" }, { top: "55%" }],
+    series: [
+      // These series are in the first grid.
+      { type: "bar", seriesLayoutBy: "row" },
+      { type: "bar", seriesLayoutBy: "row" },
+      { type: "bar", seriesLayoutBy: "row" },
+      // These series are in the second grid.
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+      { type: "bar", xAxisIndex: 1, yAxisIndex: 1 },
+    ],
+  };
+}
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```jsx title="创建 components/BarChart.vue"
+<template> </template>
+<script setup></script>
+<style scoped></style>
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```html title="App.vue"
+<template>
+  <div class="wrapper">
+    <BarChart class="chart" />
+  </div>
+</template>
+<script setup>
+  import BarChart from "./components/BarChart.vue";
+</script>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: hsl(210deg, 20%, 10%);
+  }
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .wrapper .chart {
+    width: 50%;
+    height: 70%;
+  }
+</style>
+```
+
+```diff 3
+
+```
+
+```diff 9:30
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```html 5:6  title="BarChart.vue"
+<template>
+  <Chart :options="barChartOptionCreator()" />
+</template>
+
+<script setup>
+  import Chart from "./Chart.vue";
+  import barChartOptionCreator from "../charts/barChartOptions.js";
+</script>
+```
+
+```diff 2
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns>
+
+<step>
+
+运行示例
+
+<VueChart />
+
+</step>
+
+</CodeSurferColumns>
