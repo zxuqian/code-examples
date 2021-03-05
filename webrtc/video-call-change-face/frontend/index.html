@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <div class="videos">
+          <video id="myVideo" class="videoSize" autoplay></video>
+          <video id="peerVideo" class="videoSize" autoplay></video>
+        </div>
+        <p id="idText"></p>
+        <div class="call">
+          <input type="text" id="peerIdInput" placeholder="请输入对方 id" />
+          <button id="joinBtn">视频通话</button>
+        </div>
+      </div>
+    </main>
+    <script src="peer/peerjs.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
