@@ -1,0 +1,43 @@
+.notes-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) 1fr;
+  gap: 24px;
+  height: 100vh;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  /* background: hsl(0deg, 0%, 98%); */
+  /* align-items: center; */
+  /* border-right: 1px solid hsl(0deg, 0%, 95%); */
+  box-shadow: 0px -8px 24px hsl(0deg, 0%, 0%, 0.1);
+}
+
+.notes-list {
+  list-style: none;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.notes-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid hsl(0deg, 0%, 90%);
+}
+
+.notes-list a {
+  color: hsl(240deg, 10%, 30%);
+  text-decoration: none;
+}
+
+/* .notes-list p {
+  color: hsl(0deg, 0%, 70%);
+  font-size: 0.9em;
+  margin-bottom: 0;
+  margin-top: 8px;
+} */
+
+.notes-outlet {
+  padding: 24px;
+}
