@@ -21,7 +21,7 @@ export async function loader() {
   return data;
 }
 
-export default function Index() {
+export default function NoteIndex() {
   const data = useLoaderData();
 
   return (

@@ -4,11 +4,22 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
 } from "remix";
+
+import globalStyles from "./styles/global.css";
 
 export function meta() {
   return { title: "New Remix App" };
+}
+
+export function links() {
+  return [
+    {
+      rel: "stylesheet",
+      href: globalStyles,
+    },
+  ];
 }
 
 export default function App() {
