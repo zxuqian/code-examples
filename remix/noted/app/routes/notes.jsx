@@ -1,6 +1,6 @@
 import { Link, Outlet, useLoaderData } from "remix";
 import notesStyle from "~/styles/notes.css";
-import { db } from "~/utils/db.server";
+import { getAllNotes } from "~/data/notes.js";
 
 export function links() {
   return [
@@ -13,11 +13,8 @@ export function links() {
 
 export async function loader() {
   const data = {
-    noteList: await db.note.findMany(),
-    take: 5,
-    orderBy: { createdAt: "desc" },
+    noteList: getAllNotes(),
   };
-
   return data;
 }
 
@@ -36,7 +33,6 @@ export default function NoteIndex() {
             return (
               <li key={note.id}>
                 <Link to={`${note.id}`}>{note.title}</Link>
-                {/* <p>{note.content}</p> */}
               </li>
             );
           })}

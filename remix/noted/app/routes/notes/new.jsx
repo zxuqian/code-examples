@@ -1,5 +1,5 @@
-import { Form, json, redirect, useActionData } from "remix";
-import { db } from "~/utils/db.server";
+import { Form, redirect, json, useActionData } from "remix";
+import { addANewNote } from "~/data/notes";
 
 function validateTitle(title) {
   if (!title || title.length < 1) {
@@ -16,10 +16,6 @@ function validateContent(content) {
   }
 }
 
-function badRequest(data) {
-  return json(data, { status: 400 });
-}
-
 export async function action({ request }) {
   const form = await request.formData();
   const title = form.get("title");
@@ -33,30 +29,38 @@ export async function action({ request }) {
   const fields = { title, content };
 
   if (Object.values(fieldErrors).some(Boolean)) {
-    return badRequest({ fieldErrors, fields });
+    return json({ fieldErrors, fields }, { status: 400 });
   }
 
-  const note = await db.note.create({ data: fields });
+  const note = addANewNote(title, content);
 
   return redirect(`/notes/${note.id}`);
 }
 
 export default function NewNoteRoute() {
   const actionData = useActionData();
-
   return (
     <Form method="post">
       <h2>添加笔记</h2>
       <label>
         标题：
-        <input type="text" name="title" />
+        <input
+          type="text"
+          name="title"
+          defaultValue={actionData?.fields.title}
+        />
         {actionData?.fieldErrors?.title && (
           <p className="field-error">{actionData?.fieldErrors?.title}</p>
         )}
       </label>
       <label>
         笔记：
-        <textarea name="content" cols="30" rows="10"></textarea>
+        <textarea
+          name="content"
+          cols="30"
+          rows="10"
+          defaultValue={actionData?.fields.content}
+        ></textarea>
         {actionData?.fieldErrors?.content && (
           <p className="field-error">{actionData?.fieldErrors?.content}</p>
         )}
