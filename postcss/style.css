@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+main {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  background: hsl(220deg, 10%, 5%);
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(156deg, rgba(0,13,168,1) 0%, rgba(255,0,239,1) 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 48px rgba(255,0,239,0.2);
+}
