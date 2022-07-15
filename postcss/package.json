@@ -6,7 +6,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
-    "postcss-cli": "^10.0.0"
+    "postcss-cli": "^10.0.0",
+    "postcss-preset-env": "^7.7.2"
   },
   "browserslist": [
     "cover 99.5%"
