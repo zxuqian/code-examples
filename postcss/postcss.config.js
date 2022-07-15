@@ -6,5 +6,6 @@ module.exports = {
     postcssPresetEnv({
       stage: 0,
     }),
+    require("postcss-pxtorem"),
   ],
 };
