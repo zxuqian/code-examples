@@ -1,8 +1,11 @@
 {
-  "name": "postcss",
+  "name": "boxes",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "postcss style.css -o dist.css"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
