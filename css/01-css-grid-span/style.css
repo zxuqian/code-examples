@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #0e1011;
+
+  background-image: radial-gradient(#153760 0.5px, transparent 0.5px),
+    radial-gradient(#153760 0.5px, #0e1011 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.grid {
+  width: 50%;
+  height: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+div[class^="box"] {
+  color: white;
+  background: linear-gradient(
+    45deg,
+    hsl(240deg, 100%, 50%),
+    hsl(180deg, 100%, 50%)
+  );
+  display: grid;
+  place-items: center;
+  font-size: 38px;
+}
+
+/* 普通跨行/跨列 */
+/* .box1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  grid-row-start: 1;
+  grid-row-end: 3;
+} */
+
+/* 跨行/跨列简写 */
+/* .box1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+} */
+
+/* 负数 */
+/* .box1 {
+  grid-column: 1 / -1;
+} */
+/* .box1 {
+  grid-column: 1 / -2;
+} */
+
+/* span */
+/* .box1 {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 2;
+} */
+
+/* area */
+/* .box1 {
+  grid-area: 1 / 1 / 3 / 3;
+} */
+
+/* 任意位置 */
+/* .box1 {
+  grid-area: 2 / 2 / 4 / 3;
+} */
+
+/* 超过行号，自动增长 */
+.box1 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+/* 交叠 */
+/* .box1 {
+  grid-column: 1 / 4;
+  grid-row: 1 / 3;
+  z-index: 50;
+  opacity: 0.9;
+}
+
+.box2 {
+  grid-column: 2 / 5;
+  grid-row: 2 / 3;
+  z-index: 25;
+} */

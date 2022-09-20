@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- 对移动设备开启响应式 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>图片响应式</title>
+  </head>
+  <body>
+    <!-- <img src="../image-1240.png" /> -->
+    <!-- <img
+      src="../image-300.png"
+      srcset="
+        ../image-1240.png 1240w,
+        ../image-600.png   600w,
+        ../image-300.png   300w
+      "
+      sizes="(max-width: 400px) 300px, (max-width: 900px) 600px, 1240px"
+    /> -->
+    <picture>
+      <source media="(max-width: 400px)" srcset="../image-300.png" />
+      <source media="(max-width: 900px)" srcset="../image-600.png" />
+      <img src="../image-1240.png" />
+    </picture>
+  </body>
+</html>

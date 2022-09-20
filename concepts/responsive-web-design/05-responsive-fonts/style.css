@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: hsl(0deg, 0%, 10%);
+}
+
+p {
+  color: white;
+  background-color: hsl(0deg, 0%, 0%, 0.5);
+  padding: 2rem;
+}
+
+h1 {
+  padding: 2rem;
+}
+
+.container {
+  background: linear-gradient(156deg, rgba(255,0,251,1) 0%, rgba(255,126,0,1) 100%);
+}
+
+/* h1 {
+  font-size: 4rem;
+}
+
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 2rem;
+  }
+} */
+
+/* h1 {
+  font-size: 4vw;
+} */
+
+h1 {
+  font-size: calc(2rem + 2vw);
+}

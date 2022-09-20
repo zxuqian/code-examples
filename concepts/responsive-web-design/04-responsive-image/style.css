@@ -1,0 +1,15 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: hsl(0deg, 0%, 10%);
+}
+
+
+img {
+  max-width: 100%;
+}
