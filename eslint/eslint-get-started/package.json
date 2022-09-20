@@ -1,0 +1,10 @@
+{
+  "name": "eslint-get-started",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.23.0",
+    "eslint-plugin-react": "^7.31.7"
+  }
+}
