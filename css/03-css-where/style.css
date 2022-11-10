@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+main {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  background-color: hsl(0deg, 0%, 10%);
+  color: white;
+  gap: 24px;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  background: linear-gradient(to right, #8965f6, #0a36fb);
+  color: white;
+  border-radius: 4px;
+}
+
+:where(div, section) {
+  border: 1px solid #8965f6;
+  padding: 24px;
+}
+
+p :is(.link, .btn.btn.btn) {
+  color: #83fd7a;
+}
+
+.link.link.link.link {
+  color: #ff9df4;
+}

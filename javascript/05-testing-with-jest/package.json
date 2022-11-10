@@ -1,0 +1,12 @@
+{
+  "name": "04-testing-with-jest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage --verbose"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
+  }
+}
