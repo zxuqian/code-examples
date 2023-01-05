@@ -12,28 +12,28 @@ console.log(arr);
 arr = [1, 2, 3, 4, 5, 6];
 // forEach
 console.log("forEach =====================");
-arr.forEach((item, index, arr) => {
+arr.forEach((item, index, thisArr) => {
   // item: current looping item, index: current looping item index, arr: array itself
-  console.log(item, index, arr);
+  console.log(item, index, thisArr);
 });
 
 // map
 console.log("map =====================");
-const newArr = arr.map((item, index, arr) => {
+const newArr = arr.map((item, index, thisArr) => {
   return item * index;
 });
 console.log(newArr);
 
 // filter
 console.log("filter =====================");
-const filteredArr = arr.filter((item, index, arr) => {
+const filteredArr = arr.filter((item, index, thisArr) => {
   return item % 2 === 0;
 });
 console.log(filteredArr);
 
 // findIndex
 console.log("findIndex =====================");
-const index = arr.findIndex((item, index, arr) => {
+const index = arr.findIndex((item, index, thisArr) => {
   return item === 5;
 });
 console.log(index);
