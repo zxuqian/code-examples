@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Raleway, "Open Sans", Helvetica, sans-serif;
+}
+
+main {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+
+div {
+  width: 300px;
+  padding: 24px;
+  color: white;
+  /* background: url("./background.webp"); */
+  /* move background x and y */
+  /* background: url("./background.webp") -300px -500px; */
+  /* move background with keywords */
+  /* background: url("./background.webp") center; */
+  /* move background with four values, relative to right -50px, to bottom -100 px */
+  /* background: url("./background.webp") right -50px bottom -100px; */
+
+  /* scrollable background */
+  height: 300px;
+  overflow-y: auto;
+  /* scroll */
+  background: url("./background.webp") local;
+  /* relative to the element */
+  background: url("./background.webp") scroll;
+  /* relative to the viewport */
+  background: url("./background.webp") fixed;
+
+  /* gradient background */
+  background: linear-gradient(90deg, hsl(0deg, 0%, 0%), hsl(0deg, 0%, 70%));
+
+  /* background size */
+  /* background size must follow position values(such as top), use / as seperator, otherwise it won't be valid */
+  background: url("./background.webp") top/cover;
+
+  /* multiple backgrounds */
+  background: linear-gradient(
+      90deg,
+      hsl(0deg, 0%, 0%, 0.7),
+      hsl(0deg, 0%, 70%, 0.7)
+    ),
+    url("./background.webp") center/cover;
+}
+
+p {
+  margin-bottom: 20px;
+}
