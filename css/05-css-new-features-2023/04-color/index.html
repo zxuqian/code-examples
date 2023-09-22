@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Function</title>
+  </head>
+  <style>
+    .colorBox {
+      width: 300px;
+      height: 300px;
+      display: inline-block;
+      margin-right: 50px;
+    }
+
+    .sRGB {
+      background-color: rgb(255, 0, 0);
+    }
+
+    .display-p3 {
+      background-color: color(display-p3, 1, 0, 0);
+    }
+  </style>
+  <body>
+    <div class="colorBox sRGB"></div>
+    <div class="colorBox display-p3"></div>
+  </body>
+</html>

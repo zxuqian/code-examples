@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* 选择 class 为 text 元素，并且是父元素的第 2 个子元素，如果第二个元素没有 text class 就不会选择到 */
+    .text:nth-child(2) {
+      color: red;
+    }
+
+    /* 先选择父元素中所有含有 class 为 text 的子元素，然后再选择其中第 2 个 */
+    :nth-child(2 of .text) {
+      color: blue;
+    }
+  </style>
+  <body>
+    <div class="texts">
+      <p class="text">段落 1</p>
+      <p>段落 2</p>
+      <p class="text">段落 3</p>
+      <p class="text">段落 4</p>
+    </div>
+  </body>
+</html>

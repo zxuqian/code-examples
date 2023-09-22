@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Function</title>
+  </head>
+  <style>
+    :root {
+      --color-primary: rgb(0, 95, 212);
+      --color-primary-10: color-mix(
+        in srgb,
+        var(--color-primary),
+        transparent 10%
+      );
+      --color-primary-20: color-mix(
+        in srgb,
+        var(--color-primary),
+        transparent 20%
+      );
+      --color-primary-30: color-mix(
+        in srgb,
+        var(--color-primary),
+        transparent 30%
+      );
+      --color-primary-40: color-mix(
+        in srgb,
+        var(--color-primary),
+        transparent 40%
+      );
+    }
+
+    .colorBox {
+      width: 300px;
+      height: 100px;
+    }
+
+    .colorBox:nth-child(1) {
+      background-color: var(--color-primary);
+    }
+    .colorBox:nth-child(2) {
+      background-color: var(--color-primary-10);
+    }
+    .colorBox:nth-child(3) {
+      background-color: var(--color-primary-20);
+    }
+    .colorBox:nth-child(4) {
+      background-color: var(--color-primary-30);
+    }
+    .colorBox:nth-child(5) {
+      background-color: var(--color-primary-40);
+    }
+  </style>
+  <body>
+    <div class="colorBox"></div>
+    <div class="colorBox"></div>
+    <div class="colorBox"></div>
+    <div class="colorBox"></div>
+    <div class="colorBox"></div>
+  </body>
+</html>

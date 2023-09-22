@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .buttons {
+      margin-top: 24px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 4px;
+      padding: 12px 24px;
+    }
+
+    @container style(--primary: true) {
+      .btn {
+        background-color: hsl(200deg, 80%, 80%);
+      }
+    }
+
+    @container style(--secondary: true) {
+      .btn {
+        background-color: hsl(0deg, 80%, 80%);
+      }
+    }
+  </style>
+  <body>
+    <!-- Style queries 用于给组件设置不同的变体 -->
+    <!-- 目前只支持使用 css 变量的形式 -->
+    <div class="buttons" style="--primary: true">
+      <button class="btn">按钮</button>
+    </div>
+
+    <div class="buttons" style="--secondary: true">
+      <button class="btn">按钮</button>
+    </div>
+  </body>
+</html>
