@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div hx-ext="client-side-templates">
+      <button
+        hx-get="https://jsonplaceholder.typicode.com/todos"
+        hx-target="#todo-list"
+        handlebars-array-template="todo-list-template"
+      >
+        加载 Todos <span class="htmx-indicator">...</span>
+      </button>
+      <div id="todo-list"></div>
+      <template id="todo-list-template">
+        <ul>
+          {{#each data}}
+          <li>{{this}}</li>
+          {{/each}}
+        </ul>
+      </template>
+    </div>
+  </body>
+</html>
