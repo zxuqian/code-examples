@@ -13,7 +13,9 @@
       <button
         hx-get="https://jsonplaceholder.typicode.com/todos"
         hx-target="#todo-list"
+        hx-swap="innerHTML"
         handlebars-array-template="todo-list-template"
+        hx-trigger="mouseenter delay:1s once"
       >
         加载 Todos <span class="htmx-indicator">...</span>
       </button>
