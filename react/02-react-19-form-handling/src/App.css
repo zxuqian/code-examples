@@ -1,1 +1,21 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  padding-top: 72px;
 
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+}
+
+.comment-form-container form {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+p.error {
+  color: red;
+  margin-bottom: 24px;
+}

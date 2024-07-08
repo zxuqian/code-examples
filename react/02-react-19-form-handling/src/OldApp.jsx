@@ -9,24 +9,26 @@ const submitComment = async (comment) => {
 
 function CommentForm() {
   const [comments, setComments] = useState([]);
-  const [optimisticComments, setOptimisticComents] = useOptimistic(comments);
+  const [isPending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
 
-  const [error, submitCommentAction, isPending] = useActionState(
-    async (previousState, formData) => {
-      const comment = formData.get("comment");
-      // addOptimisticComments(comment);
-      setOptimisticComents((optComments) => [...optComments, comment]);
+  async function handleFormSubmit(e) {
+    e.preventDefault();
+    setIsPending(true);
+    const formData = new FormData(e.target);
+    const comment = formData.get("comment");
+    try {
       const result = await submitComment(comment);
       setComments((comments) => [...comments, result]);
-      return null;
-    },
-    null
-  );
+      setIsPending(false);
+    } catch (error) {
+      setError(error);
+    }
+  }
 
   return (
     <div className="comment-form-container">
-      {/* action 函数会自动管理表单非受控组件的状态，例如 reset */}
-      <form action={submitCommentAction}>
+      <form onSubmit={handleFormSubmit}>
         <textarea
           name="comment"
           placeholder="写个评论吧..."
@@ -40,7 +42,7 @@ function CommentForm() {
       </form>
       {error && <p className="error">{error}</p>}
       <ul className="comments-list">
-        {optimisticComments.map((comment, index) => (
+        {comments.map((comment, index) => (
           <li key={index}>
             <p>评论：{comment}</p>
           </li>
@@ -60,7 +62,7 @@ function SubmitButton() {
   );
 }
 
-function App() {
+function OldApp() {
   return (
     <div className="container">
       <CommentForm />
@@ -68,4 +70,4 @@ function App() {
   );
 }
 
-export default App;
+export default OldApp;
